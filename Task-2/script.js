@@ -1,44 +1,53 @@
 
 
 class Shape {
-    constructor(width, height) {
+    constructor(l) {
 
 
-            this.width = width;
-            this.height = height;
+            this.length = l;
 
     }
 
     print() {
-        console.log(this.width, this.height);
+        console.log(this.length);
     }
     calcArea(){
-            return  this.width * this.height;
+            return  this.length * this.length;
     }
-    calcPerimeter(width,height){
-        return  (this.width + this.height) * 2;
+    calcPerimeter(){
+        return  (this.length + this.length) * 2;
 
 }
     toString(){
-        return `the width of the created ${this.name} is ${this.width} , its height is ${this.height} , its perimeter is ${this.calcPerimeter()} and its area is ${this.calcArea()}`
+        return `the width of the created ${this.name} is ${this.length} , its height is ${this.length} , its perimeter is ${this.calcPerimeter()} and its area is ${this.calcArea()}`
 }
 }
 
 class Rectangle extends Shape{
     constructor(w,h){
-        super(w,h);
+        super(h);
         this.name = "rectangle"
+        this.width = w  
     }
     print(){
        // super.print = 5;
         console.log("Rectangle");
     }
+    calcArea(){
+        return  this.length * this.width;
+}
+calcPerimeter(){
+    return  (this.length + this.width) * 2;
 
+}
+toString(){
+    return `the width of the created ${this.name} is ${this.length} , its height is ${this.width} , its perimeter is ${this.calcPerimeter()} and its area is ${this.calcArea()}`
+}
 }
 
 class Square extends Shape{
     constructor(w){
-        super(w,w);
+        super(w);
         this.name = "square"
 
     }
@@ -46,14 +55,14 @@ class Square extends Shape{
 
 class Circle extends Shape{
     constructor(r){
-        super(r,r);
+        super(r);
         this.name = "circle"
     }
     calcArea(){
-        return  Math.PI * this.width * this.width;
+        return  Math.PI * this.length * this.length;
 }
 calcPerimeter(){
-    return  2*Math.PI*this.width;
+    return  2*Math.PI*this.length;
 
 }
 toString(){
